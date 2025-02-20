@@ -1,0 +1,122 @@
+{% extends "index.html" %} {% block title %}All Cars{% endblock %} {% set
+show_navbar = True %} {% block content %}
+
+<h1 id="all-cars-title">Find your Car.</h1>
+<p id="all-cars-subtitle">FILTER</p>
+
+<input
+  type="text"
+  class="form-control"
+  placeholder="Search by car model"
+  id="all-cars-input"
+/>
+
+<span id="filterButton" class="more-filters-button"
+  >&gt; Show more filters</span
+>
+<div class="filter-buttons">
+  <!-- <span data-car-type="sportcar">Sportcars</span>
+  <span data-car-type="sportcar">Passenger </span>
+  <span data-car-type="sportcar">SUVs</span> -->
+
+  <button class="filter-button" data-car-type="sportcar">Sportcars</button>
+  <button class="filter-button" data-car-type="passengers">Passenger</button>
+  <button class="filter-button" data-car-type="SUVs">SUVs</button>
+</div>
+<hr />
+
+<div id="filterModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Фільтр</h2>
+
+    <form id="filter-form">
+      <p>Car type</p>
+      <label
+        ><input type="checkbox" name="cartype" value="sportcar" /> Sport
+        cars</label
+      >
+      <label><input type="checkbox" name="cartype" value="SUVs" /> SUVs</label>
+      <label
+        ><input type="checkbox" name="cartype" value="passengers" /> Passenger
+        cars</label
+      >
+
+      <p>Body type</p>
+      <label
+        ><input type="checkbox" name="bodytype" value="sedan" /> Sedan</label
+      >
+      <label
+        ><input type="checkbox" name="bodytype" value="coupe" /> Coupe</label
+      >
+
+      <p>Transmission</p>
+      <label
+        ><input type="checkbox" name="transmission" value="automatic" />
+        Automatic</label
+      >
+      <label
+        ><input type="checkbox" name="transmission" value="manual" />
+        Manual</label
+      >
+
+      <p>Traction</p>
+      <label><input type="checkbox" name="traction" value="AWD" /> AWD</label>
+      <label><input type="checkbox" name="traction" value="RWD" /> RWD</label>
+      <label><input type="checkbox" name="traction" value="FWD" /> FWD</label>
+
+      <p>Location</p>
+      <label
+        ><input type="checkbox" name="location" value="Edmonton" />
+        Edmonton</label
+      >
+      <label
+        ><input type="checkbox" name="location" value="Calgary" />
+        Calgary</label
+      >
+      <label
+        ><input type="checkbox" name="location" value="Toronto" />
+        Toronto</label
+      >
+
+      <button id="applyFilters" type="button" onclick="applyFilters()">
+        Apply Filters
+      </button>
+      <button id="resetFilters" type="button">Reset All</button>
+    </form>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div
+    class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-5"
+    id="results-container"
+  >
+    {% for car in cars %}
+    <div class="col">
+      <div class="card h-100">
+        <img
+          src="{{ car.image_url or 'https://via.placeholder.com/150' }}"
+          class="card-img-top"
+          alt="{{ car.brand }} {{ car.model }}"
+          id="fixed-size-photo"
+        />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">
+            {{ car.brand }} {{ car.model }} {{ car.year }}
+          </h5>
+          <p class="card-text">
+            {{ car.description or 'No description available for this car.' }}
+          </p>
+          <a
+            href="{{ url_for('cars.car_page', slug=car.slug) }}"
+            class="btn btn-primary mt-auto"
+            >See the car</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

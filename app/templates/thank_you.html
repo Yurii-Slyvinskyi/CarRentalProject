@@ -1,0 +1,8 @@
+{% extends "index.html" %} {% block title %}Thank You{% endblock %} {% block
+content %}
+
+<h1>Thank You!</h1>
+<p>Your car rent request has been submitted successfully.</p>
+<a href="{{ url_for('main.car_page', slug=car.slug) }}">Go back to cars</a>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "index.html" %} {% block title %}Cars{% endblock %} {% set
+show_navbar = True %} {% block content %}
+
+<!--    {% with messages = get_flashed_messages(with_categories=True) %}&ndash;&gt;-->
+<!--        {% for category, message in messages %}-->
+<!--            <p class="{{ category }}">{{ message }}</p>-->
+<!--        {% endfor %}-->
+<!--    {% endwith %}-->
+
+<h1>{{ car.brand }} {{ car.model }} {{ car.year }}</h1>
+<p>Body type: {{ car.body_type }}</p>
+<p>Traction: {{ car.traction }}</p>
+<p>color: {{ car.color }}</p>
+<p>transmission: {{ car.transmission }}</p>
+<p>price_per_day: {{ car.price_per_day }}</p>
+<p>location: {{ car.location }}</p>
+<p>available: {{ car.available }}</p>
+<a href="{{ url_for('orders.order_form', slug=car.slug) }}">Rent this car</a>
+
+<a href="{{ url_for('cars.all_cars') }}">Back</a>
+
+{% endblock %}

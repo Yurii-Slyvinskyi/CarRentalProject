@@ -1,0 +1,229 @@
+/* NAVIGATION */
+nav {
+  height: 80px;
+}
+
+/* PADDING CHANGES */
+#change-padding-left {
+  margin-left: 80px;
+}
+
+#change-padding-right {
+  margin-right: 80px;
+}
+
+.main-img-pages {
+  max-width: 100%;
+  height: auto;
+  margin-top: 0;
+  padding-top: 0;
+  filter: brightness(55%);
+}
+
+#main-page-title {
+  position: absolute;
+  top: 78%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 60px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+#all-cars-title {
+  color: black;
+  font-size: 40px;
+  font-weight: 250;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+#all-cars-subtitle {
+  color: gray;
+  font-size: 20px;
+  font-weight: 250;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+#all-cars-input {
+  margin-top: 10px;
+  margin-left: 100px;
+  margin-right: 90px;
+  width: calc(100% - 200px);
+}
+
+.more-filters-button {
+  margin-top: 10px;
+  margin-left: 100px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block; /* Додайте цей рядок */
+}
+
+#fixed-size-photo {
+  height: 150px;
+  object-fit: cover;
+}
+
+.form-label {
+  font-size: 15px;
+  font-weight: 200;
+}
+
+input.form-control {
+  padding: 10px;
+  font-size: 13px;
+  color: rgb(103, 103, 103);
+}
+
+.btn-size {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+  height: 40px;
+  max-width: 300px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.small-text {
+  font-size: 0.85rem;
+  font-weight: 300;
+}
+
+.authorization-div .authorization-main-text {
+  color: black;
+  font-size: 40px;
+  font-weight: 250;
+}
+
+.authorization-div .filter-text {
+  color: gray;
+  font-size: 15px;
+  font-weight: 250;
+  margin-bottom: 50px;
+}
+
+.image-container .profile-page-img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 0;
+  padding-top: 0;
+  filter: brightness(55%);
+}
+
+.image-container .text {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 60px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.authorization-form-a-text {
+  color: gray;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ********** */
+.page-container {
+  display: flex;
+  height: 100vh;
+}
+
+.form-container {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-image-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.login-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flash-text-authorization {
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-weight: lighter;
+  margin-bottom: 60px;
+  border-bottom: 1px solid;
+  display: inline-block;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  margin: 15% auto;
+  width: 300px;
+  border-radius: 8px;
+}
+
+.close {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.filter-buttons {
+  margin-top: 20px;
+  margin-left: 100px;
+  display: flex;
+  gap: 10px;
+}
+
+.filter-button {
+  padding: 15px 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+  color: gray;
+  transition: background-color 0.2s ease;
+  border-radius: 1px;
+}
+
+.filter-button:hover {
+  background-color: #f4f4f4;
+}
+
+.filter-button.active {
+  background-color: #f4f4f4;
+}
+
+hr {
+  margin-top: 0px;
+}

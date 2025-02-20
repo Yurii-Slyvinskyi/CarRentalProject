@@ -1,0 +1,124 @@
+{% extends "index.html" %} {% block title %}Registration{% endblock %} {% block
+content %}
+
+<div class="page-container">
+  <div class="form-container">
+    <form method="post" class="mt-5">
+      {{ form.csrf_token }}
+      <div class="container">
+        <!-- Flash-повідомлення -->
+        <div class="flash-text-authorization">
+          {% for category, message in get_flashed_messages(with_categories=true)
+          %}
+          <p><span class="{{ category }}">{{ message }}</span></p>
+          {% endfor %}
+        </div>
+
+        <!-- Кнопка Back -->
+        <div class="d-flex gap-2 col-12">
+          <a
+            href="{{ url_for('users.login') }}"
+            class="btn btn-primary btn-size"
+            >Back</a
+          >
+        </div>
+
+        <!-- Заголовок та посилання на логін -->
+        <div class="authorization-div">
+          <h1 class="authorization-main-text">Register your account.</h1>
+          <p class="filter-text">
+            Already have an account? Login
+            <a
+              class="authorization-form-a-text"
+              href="{{ url_for('users.login') }}"
+              >here.</a
+            >
+          </p>
+        </div>
+
+        <!-- Поле для імені -->
+        <div class="mb-3">
+          <label for="name" class="form-label"
+            >{{ form.name.label.text }}</label
+          >
+          {{ form.name(class="form-control", id="name") }} {% if
+          form.name.errors %}
+          <div class="form-text text-danger">
+            {% for error in form.name.errors %} {{ error }} {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Поле для імені користувача -->
+        <div class="mb-3">
+          <label for="username" class="form-label"
+            >{{ form.username.label.text }}</label
+          >
+          {{ form.username(class="form-control", id="username") }} {% if
+          form.username.errors %}
+          <div class="form-text text-danger">
+            {% for error in form.username.errors %} {{ error }} {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Поле для електронної пошти -->
+        <div class="mb-3">
+          <label for="email" class="form-label"
+            >{{ form.email.label.text }}</label
+          >
+          {{ form.email(class="form-control", id="email") }} {% if
+          form.email.errors %}
+          <div class="form-text text-danger">
+            {% for error in form.email.errors %} {{ error }} {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Поле для пароля -->
+        <div class="mb-3">
+          <label for="password" class="form-label"
+            >{{ form.password.label.text }}</label
+          >
+          {{ form.password(class="form-control", id="password") }} {% if
+          form.password.errors %}
+          <div class="form-text text-danger">
+            {% for error in form.password.errors %} {{ error }} {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Поле для підтвердження пароля -->
+        <div class="mb-3">
+          <label for="confirm_password" class="form-label"
+            >{{ form.confirm_password.label.text }}</label
+          >
+          {{ form.confirm_password(class="form-control", id="confirm_password")
+          }} {% if form.confirm_password.errors %}
+          <div class="form-text text-danger">
+            {% for error in form.confirm_password.errors %} {{ error }} {%
+            endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- Кнопка відправки форми -->
+        <div class="d-flex gap-2 col-12">
+          <button type="submit" class="btn btn-primary btn-size">
+            {{ form.submit.label.text }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Фото -->
+  <div class="login-image-container">
+    <img
+      src="{{ url_for('static', filename='images/register_page_photo.jpg') }}"
+      alt="Register Page Image"
+    />
+  </div>
+</div>
+
+{% endblock %}
